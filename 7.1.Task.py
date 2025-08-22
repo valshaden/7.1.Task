@@ -43,6 +43,16 @@ def open_new_window():
         label.image = img
         label.pack()
 
+def open_random_cat():
+    img = load_image('https://cataas.com/cat')
+    if img:
+        new_window = Toplevel()
+        new_window.title("Random Cat")
+        new_window.geometry("600x480")
+        label = Label(new_window, image=img)
+        label.image = img
+        label.pack()
+
 window = Tk()
 window.title("Cats!")
 window.geometry("600x520")
@@ -66,6 +76,10 @@ tag_combobox.pack()
 # Кнопка для загрузки изображения с тегом
 load_button = Button(text="Загрузить по тегу", command=open_new_window)
 load_button.pack()
+
+# Кнопка "Случайный котик"
+random_button = Button(text="Случайный котик", command=open_random_cat)
+random_button.pack()
 
 
 window.mainloop()
